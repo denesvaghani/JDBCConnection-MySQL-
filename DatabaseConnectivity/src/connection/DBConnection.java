@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+/*
+ * This code helpful only for 
+ * MySQL system. if you want to use with Oracle 
+ * than change the url and driver registration parameter
+ */
 public class DBConnection {
 
 	private static Connection conn;
@@ -22,9 +27,12 @@ public class DBConnection {
 		username = "root";
 		password = "";
 		try {
+
+			// Registration of Driver
 			Class.forName("com.mysql.jdbc.Driver");
 
 			try {
+				// Try to open a Connection
 				conn = DriverManager.getConnection(url, username, password);
 
 				return true;
@@ -38,6 +46,14 @@ public class DBConnection {
 			return false;
 		}
 
+	}
+
+	public static void releaseConnection(Connection conn) {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			System.out.println("There is problem in closing connection");
+		}
 	}
 
 	public static void main(String[] args) {
