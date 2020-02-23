@@ -1,5 +1,5 @@
 # JDBC Connection-MySQL-
-this code will help to connect java code to MySQL database.
+This code will help to connect java code to MySQL database.
 
 Here i have used MySQL database so i write url "jdbc:mysql://localhost:3306/" according to it. 
 I passed "com.mysql.jdbc.Driver" as argument in Class.forName() also according to MySQL.
